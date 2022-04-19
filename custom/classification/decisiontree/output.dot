@@ -1,0 +1,43 @@
+
+digraph Tree {
+node [shape=box, fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+    
+0 [label="Feature n.3 = 2\nInformation gain = 0.21\nsamples = 1555\ndistribution = [0.24, 0.02, 0.72, 0.03]"]; 
+1 [label="Predicted label: unacc\nsamples = 521\ndistribution = [1.0]"]; 
+0 -> 1 [labeldistance = 2.5, labelangle = 45, headlabel = True];
+2 [label="Feature n.5 = low\nInformation gain = 0.36\nsamples = 1034\ndistribution = [0.36, 0.03, 0.57, 0.04]"]; 
+3 [label="Predicted label: unacc\nsamples = 345\ndistribution = [1.0]"]; 
+2 -> 3 [labeldistance = 2.5, labelangle = 45, headlabel = True];
+4 [label="Feature n.0 = vhigh\nInformation gain = 0.11\nsamples = 689\ndistribution = [0.54, 0.04, 0.36, 0.06]"]; 
+5 [label="Predicted label: unacc\nInformation gain = 0.17\nsamples = 192\ndistribution = [0.38, 0.62]"]; 
+6 [label="Predicted label: acc\nsamples = 96\ndistribution = [0.72, 0.28]"]; 
+5 -> 6 [labeldistance = 2.5, labelangle = 45, headlabel = True];
+7 [label="Feature n.4 = small\nInformation gain = 0.22\nsamples = 251\ndistribution = [0.54, 0.12, 0.08, 0.26]"]; 
+8 [label="Predicted label: acc\nsamples = 83\ndistribution = [0.59, 0.25, 0.16]"]; 
+7 -> 8 [labeldistance = 2.5, labelangle = 45, headlabel = True];
+9 [label="Predicted label: acc\nsamples = 168\ndistribution = [0.51, 0.05, 0.05, 0.39]"]; 
+7 -> 9 [labeldistance = 2.5, labelangle = 45, headlabel = False];
+5 -> 7 [labeldistance = 2.5, labelangle = 45, headlabel = False];
+4 -> 5 [labeldistance = 2.5, labelangle = 45, headlabel = True];
+10 [label="Feature n.0 = high\nInformation gain = 0.16\nsamples = 497\ndistribution = [0.6, 0.06, 0.26, 0.08]"]; 
+11 [label="Predicted label: acc\nInformation gain = 0.23\nsamples = 192\ndistribution = [0.56, 0.44]"]; 
+12 [label="Predicted label: acc\nsamples = 78\ndistribution = [0.88, 0.12]"]; 
+11 -> 12 [labeldistance = 2.5, labelangle = 45, headlabel = True];
+13 [label="Predicted label: acc\nsamples = 192\ndistribution = [0.46, 0.16, 0.04, 0.34]"]; 
+11 -> 13 [labeldistance = 2.5, labelangle = 45, headlabel = False];
+10 -> 11 [labeldistance = 2.5, labelangle = 45, headlabel = True];
+14 [label="Feature n.1 = low\nInformation gain = 0.2\nsamples = 305\ndistribution = [0.62, 0.1, 0.14, 0.13]"]; 
+15 [label="Predicted label: good\nsamples = 48\ndistribution = [0.21, 0.48, 0.04, 0.27]"]; 
+14 -> 15 [labeldistance = 2.5, labelangle = 45, headlabel = True];
+16 [label="Feature n.5 = high\nInformation gain = 0.18\nsamples = 257\ndistribution = [0.7, 0.03, 0.16, 0.11]"]; 
+17 [label="Predicted label: acc\nsamples = 128\ndistribution = [0.7, 0.04, 0.05, 0.22]"]; 
+16 -> 17 [labeldistance = 2.5, labelangle = 45, headlabel = True];
+18 [label="Predicted label: acc\nsamples = 129\ndistribution = [0.7, 0.02, 0.28]"]; 
+16 -> 18 [labeldistance = 2.5, labelangle = 45, headlabel = False];
+14 -> 16 [labeldistance = 2.5, labelangle = 45, headlabel = False];
+10 -> 14 [labeldistance = 2.5, labelangle = 45, headlabel = False];
+4 -> 10 [labeldistance = 2.5, labelangle = 45, headlabel = False];
+2 -> 4 [labeldistance = 2.5, labelangle = 45, headlabel = False];
+0 -> 2 [labeldistance = 2.5, labelangle = 45, headlabel = False];
+}

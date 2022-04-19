@@ -10,6 +10,7 @@ from sklearn.model_selection import train_test_split
 
 import custom.classification.decisiontree.DecisionTree
 from constants import DATA_PATH
+from custom.classification.decisiontree.BinaryTreeToDotFormatConverter import BinaryTreeToDotFormatConverter
 
 DATASET = path.join(DATA_PATH, "car.csv")
 
@@ -34,5 +35,28 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 # tree.fit(X_train, y_train)
 # export_graphviz(tree, out_file='tree.dot', feature_names=['petal length', 'petal width'])
 
-custom_tree = custom.classification.decisiontree.DecisionTree.DecisionTree(criterion='entropy')
-custom_tree.fit(training_x=X_train, training_y=y_train)
+custom_tree = custom.classification.decisiontree.DecisionTree.DecisionTree(criterion_name='entropy')
+# custom_tree.fit(training_x=X_train, training_y=y_train)
+#BinaryTreeToDotFormatConverter.dump_tree(custom_tree._tree)
+
+# KFOLD VALIDATION
+from sklearn.model_selection import KFold
+kf = KFold(n_splits=10)
+for train_index, test_index in kf.split(X):
+    X_train, X_test = X.take(train_index, axis=0), X.take(test_index, axis=0)
+    y_train, y_test = y.take(train_index, axis=0), y.take(test_index, axis=0)
+
+    custom_tree.fit(X_train, y_train)
+
+    correct = 0
+    for idx, instance in enumerate(X_test):
+        predicted = custom_tree.predict(instance)
+        if predicted == y_test[idx]:
+            correct += 1
+
+    print(f'Accuracy: {correct/len(y_test) * 100} %')
+
+BinaryTreeToDotFormatConverter.dump_tree(custom_tree._tree)
+
+
+

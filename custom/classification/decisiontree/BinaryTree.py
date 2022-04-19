@@ -3,7 +3,7 @@ from __future__ import annotations
 from enum import Enum
 
 
-class NodeType(Enum):
+class NodeType(str, Enum):
     split = "split"
     leaf = "leaf"
 
@@ -11,10 +11,15 @@ class NodeType(Enum):
 class BinaryTree:
 
     def __init__(self):
+        self.node_index: int = 0
+        self.information_gain = None
+        self.samples = 0
+        self.samples_distribution = []
+
         self._left = None
         self._right = None
         self._value = None
-        self._node_type : NodeType | None = None
+        self._node_type: NodeType | None = None
 
     def set_left(self, value):
         """
@@ -44,6 +49,18 @@ class BinaryTree:
 
         self._right.set_value(value)
         return self._right
+
+    def children_number(self):
+
+        left_children = 0
+        if self._left:
+            left_children += 1 + self._left.children_number()
+
+        right_children = 0
+        if self._right:
+            right_children += 1 + self._right.children_number()
+
+        return left_children + right_children
 
     def set_value(self, value):
         self._value = value
